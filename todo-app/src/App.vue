@@ -6,11 +6,12 @@
         <todo-list v-bind:todos="todos"></todo-list>
         <create-todo v-on:add-todo="addTodo"></create-todo>
       </div>
-    </div>  
+    </div>
   </div>
 </template>
 
 <script>
+import sweetalert from 'sweetalert';
 import TodoList from './components/TodoList';
 import CreateTodo from './components/CreateTodo';
 
@@ -42,11 +43,9 @@ export default {
     };
   },
   methods: {
-    addTodo(title) {
-      this.todos.push({
-        title,
-        done: false,
-      });
+    createTodo(newTodo) {
+      this.todos.push(newTodo);
+      sweetalert('Success!', 'To-Do Created');
     },
   },
 };

@@ -2,7 +2,8 @@
   <div>
     <p>Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
     <p>In-Progress Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
-    <todo v-on:delete-todo="deleteTodo" v-on:complete-todo="completeTodo" v-for="todo in todos" :todo.sync="todo"></todo>
+    <todo v-on:delete-todo="deleteTodo" v-on:complete-todo="completeTodo"
+    v-for="todo in todos" :key="todo.title" :todo.sync="todo"></todo>
   </div>
 </template>
 
@@ -22,8 +23,8 @@ export default {
     completeTodo(todo) {
       const todoIndex = this.todos.indexOf(todo);
       this.todos[todoIndex].done = true;
-    }
-  },  
+    },
+  },
 };
 </script>
 
