@@ -27,16 +27,16 @@
           <input type="text" v-model="todo.project">
         </div>
         <div class="ui two button attached buttons">
-          <button class="ui basic blue botton" v-on:click="hideForm">
+          <button class="ui basic blue button" v-on:click="hideForm">
             Close X
           </button>
         </div>
       </div>
     </div>
-    <div class="ui bottom attached green basic button" v-show="todo.done">
+    <div class="ui bottom attached green basic button" v-show="!isEditing && todo.done" disabled>
       Completed
     </div>
-    <div class="ui bottom attached red basic button" v-show="!todo.done">
+    <div class="ui bottom attached red basic button" v-on:click="completeTodo(todo)" v-show="!isEditing && !todo.done">
       In-Progress
     </div>
   </div>
