@@ -15,7 +15,7 @@
             <input type='text' ref='project' defaultValue="">
           </div>
           <div class='ui two button attached buttons'>
-            <button class='ui basic blue button' v-on:click="sendForm">
+            <button class='ui basic blue button' v-on:click="sendForm()">
               Create
             </button>
             <button class='ui basic red button' v-on:click="closeForm">
@@ -53,9 +53,10 @@ export default {
           project,
           done: false,
         });
-        this.newTodoText = '';
+        this.titleText = '';
+        this.projectText = '';
+        this.isCreating = false;
       }
-      this.isCreating = false;
     },
   },
 };
